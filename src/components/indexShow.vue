@@ -6,7 +6,7 @@
             <div class="list"><i class="fa-solid fa-table-cells-large"></i><span>功能3</span></div>
             
         </div>
-        <div class="withdraw">退出</div>
+        <div class="withdraw"><i class="fa-solid fa-power-off"></i><span>退出</span></div>
     </div>
 </template>
 
@@ -19,6 +19,7 @@ export default {
 <!-- scoped样式仅作用于当前组件 -->
 <style scoped>
     .appList {
+        position: relative;
         width: 280px;
         /* background-color: rgb(174, 60, 60); */
         height: 100%;
@@ -27,6 +28,7 @@ export default {
     }
     .leftList {
         justify-content:center;
+        align-items:flex-start;
     }
     .leftList .list {
         color: #4e4e4e;
@@ -43,8 +45,18 @@ export default {
     .leftList i {
         margin-right: 10px;
     }
-.withdraw {
+    .withdraw {
+        width: 100%;
+        position: absolute;
+        left: 0;
+        bottom: 0;
         text-align: center;
-        align-self:flex-end;
+        border-top: 2px solid #dfdfdf;
+        padding: 45px 0px;
+        font-size: 23px;
+    }
+    .withdraw i {
+        color: #3c77fc;
+        margin-right: 10px;
     }
 </style>

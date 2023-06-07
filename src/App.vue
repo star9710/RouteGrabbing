@@ -1,6 +1,7 @@
 <template>
   <!-- 3.使用组件 -->
   <indexShow></indexShow>
+  
 </template>
 
 <script>
