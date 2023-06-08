@@ -24,7 +24,7 @@ export default {
         /* background-color: rgb(174, 60, 60); */
         height: 100%;
         justify-content:flex-start;
-        box-shadow: 10px 0px 10px #dadada;
+        box-shadow: 10px 0px 10px #e6e6e6;
     }
     .leftList {
         justify-content:center;
