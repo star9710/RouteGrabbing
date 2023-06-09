@@ -12,7 +12,7 @@
 
 <script>
 export default {
-
+    
 }
 </script>
 
@@ -42,6 +42,10 @@ export default {
         border-radius:50px;
         
     }
+    .leftList .list:hover{
+        color: #3c77fc;
+    }
+
     .leftList i {
         margin-right: 10px;
     }
@@ -58,5 +62,8 @@ export default {
     .withdraw i {
         color: #3c77fc;
         margin-right: 10px;
+    }
+    .withdraw:hover{
+        color: #3c77fc;
     }
 </style>

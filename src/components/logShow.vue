@@ -50,10 +50,11 @@ export default {
         font-size: 25px;
         margin: 50px;
         color: #4e4e4e;
+        border: #e4e4e4;
         box-shadow: 5px 5px 10px #b2b2b2;
     }
-    .btn button {
-        /* 选择器 */
+    .btn button:hover {
+        color: #3c77fc;
     }
     .btn button i {
         margin-right: 10px;
