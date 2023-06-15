@@ -24,8 +24,31 @@
 </template>
 
 <script>
+import getArticleList from '../api/article'
 export default {
-    
+    name:'logging',
+    setup(){
+        const state = reactive({
+      list: []
+    })
+    // 调取api获取数据
+    const getNewsList = () => {
+      const params = {
+        page: 1,
+        pageSize: 5
+      }
+      getArticleList(params).then(res => {
+        console.log(res)
+        const { data } = res
+        state.list = data.data
+      })
+    }
+    onMounted(getNewsList)
+    // ...toRefs()将state里面得对象解构
+    return {
+      ...toRefs(state)
+    }
+  }
 }
 </script>
 
