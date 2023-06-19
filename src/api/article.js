@@ -1,4 +1,4 @@
-import request from '@/utils/request' // 引入封装得axios
+import request from '../utils/request' // 引入封装得axios
 
 // 获取IP
 export function getArticleList(data) {
