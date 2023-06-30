@@ -5,14 +5,14 @@
     </div>
     <div class="content1">
       <div class="btn">
-        <button><i class="fa-solid fa-play"></i>开始</button>
+        <button @click="start()"><i class="fa-solid fa-play"></i>开始</button>
         <button><i class="fa-regular fa-folder"></i>打开文件夹</button>
       </div>
       <div class="logging">
         <div
           class="loggingShow"
           title="程序日志信息"
-        ><span>程序日志信息</span></div>
+        ><span>{{ log1.message }}</span></div>
       </div>
       <div
         class="logImgShow"
@@ -20,9 +20,10 @@
       >
         <div>
           <img
-            src=""
-            alt=""
+            :src="log1.imageFileBase64"
+            style="width: 100%;"
           >
+          <!-- <image :src="log1.message"></image> -->
         </div>
       </div>
     </div>
@@ -39,30 +40,37 @@
 </template>
 
 <script>
-import getArticleList from "../api/article";
 export default {
   name: "logging",
-  setup() {
-    const state = reactive({
-      list: [],
-    });
-    // 调取api获取数据
-    const getNewsList = () => {
-      const params = {
-        page: 1,
-        pageSize: 5,
-      };
-      getArticleList(params).then((res) => {
-        console.log(res);
-        const { data } = res;
-        state.list = data.data;
-      });
-    };
-    onMounted(getNewsList);
-    // ...toRefs()将state里面得对象解构
+  data() {
     return {
-      ...toRefs(state),
+      log1: {
+        imageFileBase64: "",
+        message: "",
+      },
     };
+  },
+  methods: {
+    // 点击获取API数据
+    start() {
+      const that = this;
+      // const params = {};
+      // getArticleList(params).then((res) => {
+      //   console.log(res);
+      // });
+      that.$axios
+        .get("http://127.0.0.1:8088/getip")
+        .then(function (response) {
+          console.log(response);
+          that.log1 = response.data;
+          that.log1.imageFileBase64 =
+            "data:image/gif;base64," + that.log1.imageFileBase64;
+          console.log(that.log1);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    },
   },
 };
 </script>
